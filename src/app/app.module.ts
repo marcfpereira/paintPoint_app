@@ -13,6 +13,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import {employeesReducer, metaReducers, reducers} from "./core/_reducers/employees.reducer";
 import {EmployeesEffects} from "./core/_effects/employees.effects";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {EmployeesEffects} from "./core/_effects/employees.effects";
     EffectsModule.forFeature([EmployeesEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     HttpClientModule,
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot(),
+    BrowserAnimationsModule
 
   ],
   providers: [],

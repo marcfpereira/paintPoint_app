@@ -14,9 +14,11 @@ export interface EmployeesState extends EntityState<Employee[]> {
 export const adapter: EntityAdapter<Employee[]> = createEntityAdapter<Employee[]>();
 // Initialize the state
 export const initialEmployeesState: EmployeesState = adapter.getInitialState({
+  // Employees properties
   employees: [],
   isEmployeesLoaded: false,
-  error: new Error() //todo ???
+  error: new Error(),
+
 })
 
 export function employeesReducer(state = initialEmployeesState, action: EmployeesActions): EmployeesState {

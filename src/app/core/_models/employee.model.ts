@@ -4,7 +4,7 @@ export class Employee {
   surname: string;
   surname2: string;
   sex: string;
-  country_id: number;
+  'country-id': number;
   phone: string;
   datebirthday: string;
   lastModification: string;
