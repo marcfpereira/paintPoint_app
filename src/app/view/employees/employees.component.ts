@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {RequestEmployees} from "../../core/_actions/employeesActionsTypes";
+import {RequestEmployees, RequestEmployeesAuxData} from "../../core/_actions/employeesActionsTypes";
 import {combineLatestAll, Subscription} from "rxjs";
 import {Employee} from "../../core/_models/employee.model";
 import {allEmployees, isEmployeesLoaded} from "../../core/_selectors/employees.selector";
@@ -18,6 +18,7 @@ export class EmployeesComponent implements OnInit, OnDestroy, AfterViewInit {
   employees: Employee[];
   isEmployeesLoaded$ = this.store.select(isEmployeesLoaded);
   pageEvent: PageEvent;
+
   constructor(
     protected store: Store,
     public dialog: MatDialog) {
@@ -31,14 +32,17 @@ export class EmployeesComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    // Retrieves the employees list
     this.store.dispatch(new RequestEmployees());
+    // Retrieve the auxiliary data to build the employees view
+    this.store.dispatch(new RequestEmployeesAuxData());
   }
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
   }
 
-  showEmployeeInfo(employee:Employee){
+  showEmployeeInfo(employee: Employee) {
     const dialogRef = this.dialog.open(EmployeeInfoDialogComponent, {
       data: {
         employee: employee
