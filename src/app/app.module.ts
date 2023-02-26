@@ -9,6 +9,10 @@ import { AppFooterComponent } from './shared/app-footer/app-footer.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {HttpClientModule} from "@angular/common/http";
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import {employeesReducer, metaReducers, reducers} from "./core/_reducers/employees.reducer";
+import {EmployeesEffects} from "./core/_effects/employees.effects";
 
 
 @NgModule({
@@ -22,9 +26,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
+    StoreModule.forFeature('employees', employeesReducer),
+    EffectsModule.forFeature([EmployeesEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    HttpClientModule,
+    StoreRouterConnectingModule.forRoot()
 
   ],
   providers: [],

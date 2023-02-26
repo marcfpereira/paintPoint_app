@@ -1,12 +1,13 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {Employee} from "../_models/employee.model";
+import {Employee, GetEmployeesResponse} from "../_models/employee.model";
 import {Observable} from "rxjs";
+
+const EMPLOYEES_API_ENDPOINT = 'https://storage.googleapis.com/web-aktios/entrevista-tecnica/info-population.json';
 
 @Injectable({
   providedIn: "root"
 })
-const EMPLOYEES_API_ENDPOINT = '';
 
 export class EmployeesService {
   constructor(
@@ -14,7 +15,7 @@ export class EmployeesService {
   ) {
   }
 
-  getAllEmployees(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(EMPLOYEES_API_ENDPOINT);
+  getAllEmployees(): Observable<GetEmployeesResponse> {
+    return this.http.get<GetEmployeesResponse>(EMPLOYEES_API_ENDPOINT);
   }
 }

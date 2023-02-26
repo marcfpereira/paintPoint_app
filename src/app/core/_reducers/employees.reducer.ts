@@ -1,6 +1,8 @@
 import {createEntityAdapter, EntityAdapter, EntityState} from "@ngrx/entity";
 import {Employee} from "../_models/employee.model";
 import {EmployeesActions, EmployeesActionsTypes} from "../_actions/employeesActionsTypes";
+import {ActionReducerMap, MetaReducer} from "@ngrx/store";
+import { routerReducer } from '@ngrx/router-store';
 
 // Creates the employees state for the store
 export interface EmployeesState extends EntityState<Employee[]> {
@@ -40,3 +42,5 @@ export function employeesReducer(state = initialEmployeesState, action: Employee
   }
 }
 
+export const reducers: ActionReducerMap<{}> = { router: routerReducer };
+export const metaReducers: MetaReducer<{}>[] = [];

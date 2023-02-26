@@ -9,3 +9,11 @@ export class Employee {
   datebirthday: string;
   lastModification: string;
 }
+
+export class Population {
+  person: Employee[]
+}
+
+export interface GetEmployeesResponse {
+  population: Population
+}
