@@ -6,6 +6,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { EmployeeInfoDialogComponent } from './dialogs/employee-info/employee-info.dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import {PipesModule} from "../../shared/pipes/pipes.module";
 
 
 
@@ -24,7 +25,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     ]),
     MatPaginatorModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    PipesModule
   ],
 })
 export class EmployeesModule { }

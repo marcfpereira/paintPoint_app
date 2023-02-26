@@ -17,8 +17,8 @@
               <h5 class="card-title">{{data.employee.name}} {{data.employee.surname}} {{data.employee.surname2}}</h5>
               <p class="card-text">Employee ID: {{data.employee.id}}</p>
               <p class="card-text"> Phone: {{data.employee.phone}}</p>
-              <p class="card-text"> Country: {{data.employee["country-id"]}}</p>
-              <p class="card-text"> Sex: {{data.employee.sex}}</p>
+              <p class="card-text"> Country: {{(data.employee["country-id"] |country)?.description ?? 'Country not found'}}</p>
+              <p class="card-text"> Sex: {{(data.employee.sex | sex)?.description}}</p>
               <p class="card-text"> Birthday: {{data.employee.datebirthday | date:  'dd/MM/yyyy'}}</p>
 
               <p class="card-text"><small class="text-muted">Last

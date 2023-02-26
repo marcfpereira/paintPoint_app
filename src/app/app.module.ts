@@ -15,7 +15,6 @@ import {employeesReducer, metaReducers, reducers} from "./core/_reducers/employe
 import {EmployeesEffects} from "./core/_effects/employees.effects";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 @NgModule({
   declarations: [
     AppComponent,

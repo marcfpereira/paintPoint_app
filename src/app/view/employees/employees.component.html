@@ -1,7 +1,9 @@
 <div class="general-container container-sm container-md container-lg container-xl mt-5">
   <div *ngIf="isEmployeesLoaded$|async; else loadingData" class="employees-container">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-2 g-4">
-      <div *ngFor="let employee of employees| slice:((paginator.pageIndex)*paginator.pageSize):((paginator.pageIndex+1)*paginator.pageSize)" class="card m-3" style="max-width: 540px;">
+      <div
+        *ngFor="let employee of employees| slice:((paginator.pageIndex)*paginator.pageSize):((paginator.pageIndex+1)*paginator.pageSize)"
+        class="card m-3" style="max-width: 540px;">
         <div (click)="showEmployeeInfo(employee)" class="row g-0">
           <div class="col-md-4">
             <img src="assets/users/avatar/{{employee.id}}.jpg" class="card-img-top p-3 rounded-circle "
@@ -18,10 +20,7 @@
       </div>
     </div>
   </div>
-  <mat-paginator #paginator [length]="employees.length"
-                 [pageSize]="5"
-                 (page)="pageEvent = $event">
-
+  <mat-paginator #paginator [length]="employees.length" [pageSize]="5" (page)="pageEvent = $event">
   </mat-paginator>
 </div>
 <!--TODO missing center spinner in middle screen-->

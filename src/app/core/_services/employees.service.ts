@@ -27,7 +27,7 @@ export class EmployeesService {
   }
 
   /**
-   * Retrieves all employees auxiliary data like sex, country, language, ...
+   * Retrieves all employees auxiliary data like sex, country, sex, ...
    */
   getAllAuxiliaryEmployeeData(): Observable<{ data: { sex: Sex[], country: Country[], language: Language[] } }> {
     return this.http.get<{ data: { sex: Sex[], country: Country[], language: Language[] } }>(EMPLOYEES_AUX_DATA_API_ENDPOINT)
