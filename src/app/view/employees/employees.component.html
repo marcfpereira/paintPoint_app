@@ -1,33 +1,37 @@
 <div class="general-container container-sm container-md container-lg container-xl mt-5">
-  <div *ngIf="isEmployeesLoaded$|async; else loadingData" class="employees-container">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-2 g-4">
-      <div
-        *ngFor="let employee of employees| slice:((paginator.pageIndex)*paginator.pageSize):((paginator.pageIndex+1)*paginator.pageSize)"
-        class="card m-3" style="max-width: 540px;">
-        <div (click)="showEmployeeInfo(employee)" class="row g-0">
-          <div class="col-md-4">
-            <img src="assets/users/avatar/{{employee.id}}.jpg" class="card-img-top p-3 rounded-circle "
-                 alt="image not available for {{employee.name}} {{employee.surname}} {{employee.surname2}}">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body h-100">
-              <h5 class="card-title">{{employee.name}}</h5>
-              <h6 class="card-title"> {{employee.surname}} {{employee.surname2}} </h6>
-              <p class="card-text">Phone: {{employee.phone}} </p>
+    <div *ngIf="isEmployeesLoaded$|async; else loadingData" class="employees-container">
+        <div *ngIf="filteredEmployees.length; else noValueFound"
+             class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-2 g-4 justify-content-center">
+            <div
+                    *ngFor="let employee of filteredEmployees| slice:((paginator.pageIndex)*paginator.pageSize):((paginator.pageIndex+1)*paginator.pageSize);"
+                    class="card m-3 card-container" style="max-width: 540px;">
+                <div (click)="showEmployeeInfo(employee)" class="row g-0">
+                    <div class="col-md-4">
+                        <img src="assets/users/avatar/{{employee.id}}.jpg" class="card-img-top p-3 rounded-circle "
+                             alt="image not available for {{employee.name}} {{employee.surname}} {{employee.surname2}}">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body h-100">
+                            <h5 class="card-title pt-4">{{employee.name}}</h5>
+                            <h6 class="card-title"> {{employee.surname}} {{employee.surname2}} </h6>
+                            <p class="card-text">Phone: {{employee.phone}} </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <mat-paginator #paginator [length]="employees.length" [pageSize]="5" (page)="pageEvent = $event">
-  </mat-paginator>
+    <mat-paginator #paginator [length]="filteredEmployees.length" [pageSize]="5" (page)="pageEvent = $event">
+    </mat-paginator>
 </div>
 <!--TODO missing center spinner in middle screen-->
 <ng-template #loadingData>
-  <div class="spinner-container">
-    <div class="spinner-border" role="status">
-      <span class="visually-hidden">Loading...</span>
+    <div class="spinner-container">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
     </div>
-  </div>
+</ng-template>
+<ng-template #noValueFound>
+    <h3>No employees for the input entered</h3>
 </ng-template>

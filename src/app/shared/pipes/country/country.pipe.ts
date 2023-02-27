@@ -5,22 +5,22 @@ import {Country} from "../../../core/_models/country.model";
 import {Subscription} from "rxjs";
 
 @Pipe({
-  name: 'country'
+    name: 'country'
 })
 export class CountryPipe implements PipeTransform, OnDestroy {
-  countries: Country[];
-  subscriptions: Subscription = new Subscription();
+    countries: Country[];
+    subscriptions: Subscription = new Subscription();
 
-  constructor(private store: Store) {
-    this.store.select(allCountries).subscribe(countries=> this.countries = countries);
-  }
+    constructor(private store: Store) {
+        this.store.select(allCountries).subscribe(countries => this.countries = countries);
+    }
 
-  transform(value: number) {
-    return this.countries.find(country => country.id === value);
-  }
+    transform(value: number) {
+        return this.countries.find(country => country.id === value);
+    }
 
-  ngOnDestroy() {
-    this.subscriptions.unsubscribe();
-  }
+    ngOnDestroy() {
+        this.subscriptions.unsubscribe();
+    }
 
 }

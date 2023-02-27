@@ -13,6 +13,11 @@ const EMPLOYEES_AUX_DATA_API_ENDPOINT = 'https://storage.googleapis.com/web-akti
   providedIn: "root"
 })
 
+/**
+ * This service provides functions to load employees resources. It is used for ngRX.
+ * @author Marc Fernández Pereira
+ * @version 1.0 Release version
+ */
 export class EmployeesService {
   constructor(
     private http: HttpClient

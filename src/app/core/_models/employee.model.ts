@@ -1,12 +1,12 @@
-export class Employee {
+export class Employee extends Object{
   id: number;
   name: string;
   surname: string;
   surname2: string;
   sex: string;
-  'country-id': number;
+  'country-id': number; // This attribute is probably poorly defined in the API response
   phone: string;
-  datebirthday: string;
+  datebirthday: string; // This attribute is probably poorly defined in the API response
   lastModification: string;
 }
 

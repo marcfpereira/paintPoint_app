@@ -5,22 +5,22 @@ import {Sex} from "../../../core/_models/sex.model";
 import {Subscription} from "rxjs";
 
 @Pipe({
-  name: 'sex'
+    name: 'sex'
 })
 export class SexPipe implements PipeTransform, OnDestroy {
-  sexes: Sex[];
-  subscriptions: Subscription = new Subscription();
+    sexes: Sex[];
+    subscriptions: Subscription = new Subscription();
 
-  constructor(private store: Store) {
-    this.store.select(allSexes).subscribe(sexes=> this.sexes = sexes);
-  }
+    constructor(private store: Store) {
+        this.store.select(allSexes).subscribe(sexes => this.sexes = sexes);
+    }
 
-  transform(value: string) {
-    return this.sexes.find(sex => sex.key === value);
-  }
+    transform(value: string) {
+        return this.sexes.find(sex => sex.key === value);
+    }
 
-  ngOnDestroy() {
-    this.subscriptions.unsubscribe();
-  }
+    ngOnDestroy() {
+        this.subscriptions.unsubscribe();
+    }
 
 }

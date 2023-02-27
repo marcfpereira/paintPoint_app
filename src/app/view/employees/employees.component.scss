@@ -1,17 +1,20 @@
-.employees-container {
-  //background-color: lightpink;
-}
-
 .general-container {
-  //background-color: aquamarine;
-  height: auto;
   text-align: center;
+  height: 85vh;
 }
 
 .spinner-container {
   text-align: center;
 }
 
-.img-container{
+.img-container {
   max-width: 30%;
+}
+
+.card-container {
+  cursor: pointer;
+}
+
+.card-container:hover {
+  border-color: #212529;
 }
