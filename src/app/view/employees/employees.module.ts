@@ -7,6 +7,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import { EmployeeInfoDialogComponent } from './dialogs/employee-info/employee-info.dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {PipesModule} from "../../shared/pipes/pipes.module";
+import {Store} from "@ngrx/store";
 
 
 
@@ -28,5 +29,6 @@ import {PipesModule} from "../../shared/pipes/pipes.module";
     MatDialogModule,
     PipesModule
   ],
+  providers:[Store]
 })
 export class EmployeesModule { }
