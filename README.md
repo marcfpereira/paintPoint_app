@@ -1,6 +1,7 @@
 # Paint&point S.L Application 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1 by Marc Fernández Pereira for Aktios.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1 by Marc Fernández Pereira for Aktios. <br/>All images appearing in the application are copyright free and have been obtained from https://this-person-does-not-exist.com/en.
+
 
 ## GitHub Pages deployment
 - The technical test can be accessed through the following link: https://marcfpereira.github.io/paintPoint_app/. If you prefer to run it on a local server, follow the steps detailed below.
